@@ -1,0 +1,196 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-01-19T18:44:16.369Z",
+    "end": "2020-01-19T18:44:30.308Z",
+    "duration": 13939,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "90edae98-eded-4b81-adaa-392c65a079df",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "10a75360-d359-4814-b39f-3eddddb8e7a2",
+          "title": "Test 4: Handing advanced functionalities of Cypress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Handling pop-ups and alerts",
+              "fullTitle": "Test 4: Handing advanced functionalities of Cypress Handling pop-ups and alerts",
+              "timedOut": null,
+              "duration": 6522,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Navigating to the practice page\ncy.visit(Cypress.env(\"automationPractice_url\")); //Because Cypress handles alerts and pop-ups, we need not click on Yes/No on the alert\n//Click on the Alert button on the webpage\ncy.get('#alertbtn').click(); //Click on the Confirm button on the webpage\ncy.get('input[value = \"Confirm\"]').click();",
+              "err": {},
+              "uuid": "8dafcac5-dde6-4dea-9c6d-c4b0258d3f30",
+              "parentUUID": "10a75360-d359-4814-b39f-3eddddb8e7a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Getting text in the alert boxes",
+              "fullTitle": "Test 4: Handing advanced functionalities of Cypress Getting text in the alert boxes",
+              "timedOut": null,
+              "duration": 49,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Firing the ALERT through Cypress\ncy.on('window:alert', function (alertString) {\n  //This is a Mocha assertion\n  expect(alertString).to.equal(\"Hello , share this practice page and share your knowledge\");\n}); //Firing the CONFIRM event through Cypress\ncy.on('window:confirm', function (confirmString) {\n  expect(confirmString).to.equal(\"Hello , Are you sure you want to confirm?\");\n});",
+              "err": {},
+              "uuid": "04ac6c5f-6f4b-4e7e-9804-4b062e4daaa5",
+              "parentUUID": "10a75360-d359-4814-b39f-3eddddb8e7a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Handling Child Tabs functionality",
+              "fullTitle": "Test 4: Handing advanced functionalities of Cypress Handling Child Tabs functionality",
+              "timedOut": null,
+              "duration": 2707,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Clicking on a link which redirects the operation to a child page\n//Here we are removing an attribute called target thus making the link open in the same parent window\ncy.get('#opentab').invoke('removeAttr', 'target').click(); //Validating the URL of the new page to which we travelled to\ncy.url().should('include', \"https://www.rahulshettyacademy.com/#/index\"); //Here, the chainer can also be 'contain'.\n//We now need to navigate back to the webpage\ncy.go('back');",
+              "err": {},
+              "uuid": "0d2b7a7d-e2ab-444c-a315-14e28a3e5f4d",
+              "parentUUID": "10a75360-d359-4814-b39f-3eddddb8e7a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Handling web tables",
+              "fullTitle": "Test 4: Handing advanced functionalities of Cypress Handling web tables",
+              "timedOut": null,
+              "duration": 187,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('tr td:nth-child(2)').each(function ($el, index, $list) {\n  var text = $el.text();\n  if (text.includes(\"Python\")) {\n    cy.get(\"tr td:nth-child(2)\").eq(index).next().then(function (price) {\n      //const priceText = price.text()\n      expect(price.text()).to.equal(\"25\");\n    });\n  }\n});",
+              "err": {},
+              "uuid": "47fcf63d-9211-4042-bb1e-90bdf8f7bfcb",
+              "parentUUID": "10a75360-d359-4814-b39f-3eddddb8e7a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Mouse hover functionality",
+              "fullTitle": "Test 4: Handing advanced functionalities of Cypress Mouse hover functionality",
+              "timedOut": null,
+              "duration": 188,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Here we cannot use Cypress commands to invoke mouse hover actions\ncy.get('.mouse-hover-content').invoke('show'); //'button[id=\"mousehover\"]'\ncy.contains(\"Top\").click(); //Verifying that clicking on the button has taken to the TOP of the page\ncy.url().should('include', 'top');",
+              "err": {},
+              "uuid": "63d149c3-4a22-4049-9ac2-c9c60988a34a",
+              "parentUUID": "10a75360-d359-4814-b39f-3eddddb8e7a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Opening a Child Tab",
+              "fullTitle": "Test 4: Handing advanced functionalities of Cypress Opening a Child Tab",
+              "timedOut": null,
+              "duration": 569,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//here, we are trying to open a tab using 'href' attribute and prop() method\ncy.get('#opentab').then(function (element) {\n  var urlText = element.prop('href');\n  cy.log(urlText); //visit() method cannot be used to access browsers from other domains\n  cy.visit(urlText);\n});",
+              "err": {},
+              "uuid": "8a7b88ba-5d39-491c-beee-66d1b34f2cd0",
+              "parentUUID": "10a75360-d359-4814-b39f-3eddddb8e7a2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8dafcac5-dde6-4dea-9c6d-c4b0258d3f30",
+            "04ac6c5f-6f4b-4e7e-9804-4b062e4daaa5",
+            "0d2b7a7d-e2ab-444c-a315-14e28a3e5f4d",
+            "47fcf63d-9211-4042-bb1e-90bdf8f7bfcb",
+            "63d149c3-4a22-4049-9ac2-c9c60988a34a",
+            "8a7b88ba-5d39-491c-beee-66d1b34f2cd0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10222,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "overwrite": "false"
+      },
+      "version": "4.1.0"
+    }
+  }
+}

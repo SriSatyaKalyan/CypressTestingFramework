@@ -2,7 +2,7 @@
 import homePage from "../../support/pageObjects/homePage";
 import checkoutPage from "../../support/pageObjects/checkoutPage";
 
-describe("Framework 1: My Second Test Suite", function(){
+describe("Framework 1: Framework Test Suite", function(){
 
     //This is the before hook in the function. It runs before all the tests in the 'describe' block
     before(function(){
@@ -54,7 +54,7 @@ describe("Framework 1: My Second Test Suite", function(){
         // })
     })
 
-    it("Handling the cart items", function () {
+    it("Verifying the items present in the cart", function () {
         let sum = 0;
 
         //Declare the home page POM object again
@@ -86,6 +86,11 @@ describe("Framework 1: My Second Test Suite", function(){
         })
 
         // assert.strictEqual(sum, totalCost, "The values are equal");
+    })
+
+    it("Handling the cart items", function () {
+        //Declare the home page POM object again
+        const checkoutPageVar = new checkoutPage();
 
         //Clicking on the Checkout button again but this time in the CART page
         checkoutPageVar.getCartCheckoutButton().click();
@@ -95,6 +100,9 @@ describe("Framework 1: My Second Test Suite", function(){
 
         //Selecting the first suggestion from the list of suggestions
         checkoutPageVar.getFirstSuggestion().click();
+
+        //Waiting for 3 seconds
+        cy.wait(3000);
 
         //Click on the "Terms and Conditions" check box
         checkoutPageVar.getTermsConditionsCheckBox().click();
@@ -108,32 +116,4 @@ describe("Framework 1: My Second Test Suite", function(){
         //Checking the text of the alert
         cy.get('.alert').should('contain', "Success! Thank you! Your order will be delivered in next few weeks :-).");
     })
-
-    // it("Purchasing the items finally", function () {
-    //     const checkoutPageVar = new checkoutPage();
-    //
-    //     //Clicking on the Checkout button
-    //     checkoutPageVar.getCheckoutButton().click();
-    //
-    //     //Clicking on the Checkout button again but this time in the CART page
-    //     checkoutPageVar.getCartCheckoutButton().click();
-    //
-    //     //Entering the Delivery Location
-    //     checkoutPageVar.getDeliverySpace().type("India")
-    //
-    //     //Selecting the first suggestion from the list of suggestions
-    //     checkoutPageVar.getFirstSuggestion().click();
-    //
-    //     //Click on the "Terms and Conditions" check box
-    //     checkoutPageVar.getTermsConditionsCheckBox().click();
-    //
-    //     //Click on the 'Purchase' button
-    //     checkoutPageVar.getPurchaseButton().click();
-    //
-    //     //Check the presence of the Success alert in the page
-    //     checkoutPageVar.checkSuccessAlert().should('be.visible');
-    //
-    //     //Checking the text of the alert
-    //     cy.get('.alert').should('contain', "Success! Thank you! Your order will be delivered in next few weeks :-).");
-    // })
 })

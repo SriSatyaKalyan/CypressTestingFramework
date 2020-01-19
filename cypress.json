@@ -1,6 +1,11 @@
 {
   "defaultCommandTimeout": 8000,
   "pageLoadTimeout": 60000,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "overwrite": "true"
+  },
+  "chromeWebSecurity": false,
   "env": {
     "angular_url": "https://rahulshettyacademy.com/angularpractice/",
     "automationPractice_url": "https://rahulshettyacademy.com/AutomationPractice/"

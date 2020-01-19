@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-01-19T18:43:40.447Z",
+    "end": "2020-01-19T18:43:53.458Z",
+    "duration": 13011,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4e0f9da3-bfea-4cbf-8879-01aa69ac09e4",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "28ff1b91-869d-4ffa-a501-3224152582c6",
+          "title": "Test 1: Selecting items from the website",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test 1: Performing grocery shopping",
+              "fullTitle": "Test 1: Selecting items from the website Test 1: Performing grocery shopping",
+              "timedOut": null,
+              "duration": 5500,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://rahulshettyacademy.com/seleniumPractise/#/\"); //Here 'get' can be equated with 'findElement' in Selenium\ncy.get('.search-keyword').type(\"ca\"); //wait line in Cypress\ncy.wait(2000); //A console log\nconsole.log(\"Where do I get printed?\"); //should is an assertion in Chai\ncy.get('.product:visible').should('have.length', 4); //Aliasing\ncy.get('.products').as('productsAlias'); //get the child DOM elements in the web-page - Parent child chaining\ncy.get('@productsAlias').find('.product').should('have.length', 4); //Click on AddToCart button on the second button. try to have a test case where you are required to get element from the end of the list\n//using eq as the negative index pulls from the end of the list\ncy.get('@productsAlias').find('.product').eq(1).contains(\"ADD TO CART\").click(); //So, now, instead of relying on the index, we are verifying the name of the Product and then proceed to click on the\n//respective ADD TO CART element. Here, we will click on other product, not the one selected in the above step.\ncy.get('@productsAlias').find('.product').each(function ($el, index, $list) {\n  var vegetableText = $el.find('h4.product-name').text();\n  if (vegetableText.includes('Cashews')) {\n    $el.find('button').click();\n  }\n}); //Aliasing done here again\ncy.get('p > strong').as('footerText'); //Printing the name of the logo\ncy.get('@footerText').then(function (logoText) {\n  cy.log(logoText.text());\n}); //Assertion from Chai\ncy.get('@footerText').should('have.text', \"GreenKart\");",
+              "err": {},
+              "uuid": "d9d59529-7d34-4418-a150-a6060342d855",
+              "parentUUID": "28ff1b91-869d-4ffa-a501-3224152582c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Clicking on the cart item and proceeding to checkout",
+              "fullTitle": "Test 1: Selecting items from the website Clicking on the cart item and proceeding to checkout",
+              "timedOut": null,
+              "duration": 1718,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//Clicking on the bag image box which displays the items which have been selected for checkout\ncy.get('.cart-icon > img').click(); //Clicking on the 'Proceed to Checkout' button\ncy.contains('PROCEED TO CHECKOUT').click(); //Clicking on the 'Place Order' button\ncy.contains('Place Order').click();",
+              "err": {
+                "message": "CypressError: Cypress detected a cross origin error happened on page load:\n\n  > Blocked a frame with origin \"https://rahulshettyacademy.com\" from accessing a cross-origin frame.\n\nBefore the page load, you were bound to the origin policy:\n  > https://rahulshettyacademy.com\n\nA cross origin error happens when your application navigates to a new superdomain which does not match the origin policy above.\n\nThis typically happens in one of three ways:\n\n1. You clicked an <a> that routed you outside of your application\n2. You submitted a form and your server redirected you outside of your application\n3. You used a javascript redirect to a page outside of your application\n\nCypress does not allow you to change superdomains within a single test.\n\nYou may need to restructure some of your test code to avoid this problem.\n\nAlternatively you can also disable Chrome Web Security which will turn off this restriction by setting { chromeWebSecurity: false } in 'cypress.json'.\n\nhttps://on.cypress.io/cross-origin-violation\n",
+                "estack": "CypressError: Cypress detected a cross origin error happened on page load:\n\n  > Blocked a frame with origin \"https://rahulshettyacademy.com\" from accessing a cross-origin frame.\n\nBefore the page load, you were bound to the origin policy:\n  > https://rahulshettyacademy.com\n\nA cross origin error happens when your application navigates to a new superdomain which does not match the origin policy above.\n\nThis typically happens in one of three ways:\n\n1. You clicked an <a> that routed you outside of your application\n2. You submitted a form and your server redirected you outside of your application\n3. You used a javascript redirect to a page outside of your application\n\nCypress does not allow you to change superdomains within a single test.\n\nYou may need to restructure some of your test code to avoid this problem.\n\nAlternatively you can also disable Chrome Web Security which will turn off this restriction by setting { chromeWebSecurity: false } in 'cypress.json'.\n\nhttps://on.cypress.io/cross-origin-violation\n\n    at Object.cypressErr (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:86206:11)\n    at Object.throwErr (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:86161:18)\n    at Object.throwErrByPath (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:86193:17)\n    at onPageLoadErr (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:70933:21)\n    at HTMLIFrameElement.<anonymous> (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:81339:17)\n    at HTMLIFrameElement.dispatch (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:16821:27)\n    at HTMLIFrameElement.elemData.handle (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:16629:28)",
+                "diff": null
+              },
+              "uuid": "bad94d1d-65b1-44a2-be7f-d5ffa4bf90ed",
+              "parentUUID": "28ff1b91-869d-4ffa-a501-3224152582c6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d9d59529-7d34-4418-a150-a6060342d855"
+          ],
+          "failures": [
+            "bad94d1d-65b1-44a2-be7f-d5ffa4bf90ed"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7218,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "overwrite": "false"
+      },
+      "version": "4.1.0"
+    }
+  }
+}
