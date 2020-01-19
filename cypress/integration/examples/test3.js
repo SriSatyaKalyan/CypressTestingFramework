@@ -1,4 +1,4 @@
-describe("Handling basic functionalities of Cypress", function(){
+describe("Test 3: Handling basic functionalities of Cypress", function(){
     it("Checkbox functionality", function(){
         //Navigating to the practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");

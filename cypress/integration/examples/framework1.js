@@ -1,8 +1,8 @@
 //Importing the page objects from the pageObjects folder
-import homePage from "../pageObjects/homePage";
-import checkoutPage from "../pageObjects/checkoutPage";
+import homePage from "../../support/pageObjects/homePage";
+import checkoutPage from "../../support/pageObjects/checkoutPage";
 
-describe("My Second Test Suite", function(){
+describe("Framework 1: My Second Test Suite", function(){
 
     //This is the before hook in the function. It runs before all the tests in the 'describe' block
     before(function(){
@@ -11,7 +11,8 @@ describe("My Second Test Suite", function(){
             this.details = data;
         })
 
-        cy.visit("https://rahulshettyacademy.com/angularpractice/");
+        //We are calling the environmental variables from the cypress.json file
+        cy.visit(Cypress.env("angular_url"));
     })
 
     it("Verifying the home page", function () {

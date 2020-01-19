@@ -1,7 +1,7 @@
-describe("Handing advanced functionalities of Cypress", function(){
+describe("Test 4: Handing advanced functionalities of Cypress", function(){
     it("Handling pop-ups and alerts", function(){
         //Navigating to the practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+        cy.visit(Cypress.env("automationPractice_url"));
 
         //Because Cypress handles alerts and pop-ups, we need not click on Yes/No on the alert
         //Click on the Alert button on the webpage
