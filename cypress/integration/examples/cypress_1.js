@@ -48,18 +48,18 @@ describe('Test 1: Selecting items from the website', function(){
 
     })
 
-    it('Clicking on the cart item and proceeding to checkout', function () {
-        //Clicking on the bag image box which displays the items which have been selected for checkout
-        // cy.get('.cart-icon > img').click();
-        cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/cart")
-
-        //Clicking on the 'Proceed to Checkout' button
-        // cy.contains('PROCEED TO CHECKOUT').click();
-
-        //wait line in Cypress
-        cy.wait(2000);
-
-        //Clicking on the 'Place Order' button
-        cy.contains('Place Order').click();
-    })
+    // it('Clicking on the cart item and proceeding to checkout', function () {
+    //     //Clicking on the bag image box which displays the items which have been selected for checkout
+    //     // cy.get('.cart-icon > img').click();
+    //     cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/cart")
+    //
+    //     //Clicking on the 'Proceed to Checkout' button
+    //     // cy.contains('PROCEED TO CHECKOUT').click();
+    //
+    //     //wait line in Cypress
+    //     cy.wait(2000);
+    //
+    //     //Clicking on the 'Place Order' button
+    //     cy.contains('Place Order').click();
+    // })
 })

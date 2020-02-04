@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 1,
-    "start": "2020-01-19T22:04:50.086Z",
-    "end": "2020-01-19T22:05:15.779Z",
-    "duration": 25693,
+    "start": "2020-02-02T23:05:14.658Z",
+    "end": "2020-02-02T23:05:39.132Z",
+    "duration": 24474,
     "testsRegistered": 4,
     "passPercent": 75,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "3ddaf725-ac37-41e9-9573-befd42cf127f",
+      "uuid": "894644da-d5a4-42f9-87d6-351a37238806",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "07f49d36-df9b-40a1-ba8d-580e9a270a9a",
+          "uuid": "40d6da21-a41c-479d-b57a-1ab0511f19b7",
           "title": "Framework 1: Framework Test Suite",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verifying the home page",
               "fullTitle": "Framework 1: Framework Test Suite Verifying the home page",
               "timedOut": null,
-              "duration": 3142,
+              "duration": 3119,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "var homePageVar = new _homePage.default(); // cy.visit(\"https://rahulshettyacademy.com/angularpractice/\");\n//We call it using this.details or Cypress would not know what variable we are referring to\nhomePageVar.getNameBox().type(this.details.name);\nhomePageVar.getGenderBox().select(this.details.gender); //verifying the Two-Way Binding Example\nhomePageVar.getTwoWayDataBindingBox().should('have.value', this.details.name); //verifying that the attribute 'min-length' is '2'\ncy.get('input[name = \"name\"]:nth-child(2)').should('have.attr', 'minlength', '2'); //Verifying that the third option named 'Entrepreneur' is disabled\nhomePageVar.getEntrepreneurButton().should('be.disabled');",
               "err": {},
-              "uuid": "9c56f847-2c62-45d8-a4a6-7701922e7a29",
-              "parentUUID": "07f49d36-df9b-40a1-ba8d-580e9a270a9a",
+              "uuid": "942c91d8-929c-44bf-87cc-de9f807fda7f",
+              "parentUUID": "40d6da21-a41c-479d-b57a-1ab0511f19b7",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Doing some shopping now!!",
               "fullTitle": "Framework 1: Framework Test Suite Doing some shopping now!!",
               "timedOut": null,
-              "duration": 2095,
+              "duration": 1860,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "var homePageVar = new _homePage.default();\nhomePageVar.getShopLink().click(); //Using the customized command to click on the cellphone link - Blackberry\ncy.selectProduct(\"Blackberry\"); //We are also clicking on the Nokia Edge cellphone\ncy.selectProduct(\"Nokia Edge\"); //We can also use cy.debug() as the debugging command\n// cy.pause();\n//An iterative loop for selecting the items in the array of key-value pairs - NOT WORKING IN CYPRESS\n// this.details.cellphones.forEach(function(element) {\n//     cy.selectProduct(element);\n// })",
               "err": {},
-              "uuid": "84c75c08-2bbe-4177-ad2a-ace76fab769d",
-              "parentUUID": "07f49d36-df9b-40a1-ba8d-580e9a270a9a",
+              "uuid": "cda1091b-f06a-4cbe-8051-9d5a62948af2",
+              "parentUUID": "40d6da21-a41c-479d-b57a-1ab0511f19b7",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Verifying the items present in the cart",
               "fullTitle": "Framework 1: Framework Test Suite Verifying the items present in the cart",
               "timedOut": null,
-              "duration": 196,
+              "duration": 207,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -83,8 +83,8 @@
               "context": null,
               "code": "var sum = 0; //Declare the home page POM object again\nvar checkoutPageVar = new _checkoutPage.default(); //Clicking on the Checkout button\ncheckoutPageVar.getCheckoutButton().click(); //Verifying the values of the total cost and adding the individual costs\ncy.get('tr td:nth-child(4) strong').each(function ($el, index, $list) {\n  cy.log($el.text()); // const amountString = $el.text();\n  // const splitter = $el.text().split(\" \");\n  var amount = parseInt($el.text().split(\" \")[1], 10);\n  sum = sum + amount;\n}).then(function () {\n  cy.log(\"Total calculated sum: \" + sum);\n}); //Deriving the total cost amount from the webpage\nvar totalCost = 0;\ncy.get('h3 strong').then(function (totalCostString) {\n  totalCost = parseInt(totalCostString.text().split(\" \")[1], 10);\n  cy.log(\"Cart Cost: \" + totalCost).then(function () {\n    //Placing an assertion comparing the values\n    assert.strictEqual(sum, totalCost, \"The values are equal\");\n  });\n}); // assert.strictEqual(sum, totalCost, \"The values are equal\");",
               "err": {},
-              "uuid": "0c87c7f1-5df9-491b-92de-15e7a29e8cac",
-              "parentUUID": "07f49d36-df9b-40a1-ba8d-580e9a270a9a",
+              "uuid": "c69669f4-6d21-43bf-9938-f38ffca95a5f",
+              "parentUUID": "40d6da21-a41c-479d-b57a-1ab0511f19b7",
               "isHook": false,
               "skipped": false
             },
@@ -92,7 +92,7 @@
               "title": "Handling the cart items",
               "fullTitle": "Framework 1: Framework Test Suite Handling the cart items",
               "timedOut": null,
-              "duration": 16933,
+              "duration": 16878,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -105,24 +105,24 @@
                 "estack": "CypressError: Timed out retrying: cy.click() failed because this element:\n\n<label for=\"checkbox2\">...</label>\n\nis being covered by another element:\n\n<a>India</a>\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at Object.cypressErr (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:86206:11)\n    at Object.throwErr (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:86161:18)\n    at Object.throwErrByPath (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:86193:17)\n    at Object.retry (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:76849:16)\n    at retryActionability (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:65238:19)\n    at tryCatcher (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:120669:23)\n    at Function.Promise.attempt.Promise.try (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:117944:29)\n    at tryFn (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:77307:21)\n    at whenStable (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:77342:12)\n    at https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:76892:16\n    at tryCatcher (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:120669:23)\n    at Promise._settlePromiseFromHandler (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:118605:31)\n    at Promise._settlePromise (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:118662:18)\n    at Promise._settlePromise0 (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:118707:10)\n    at Promise._settlePromises (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:118786:18)\n    at Promise._fulfill (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:118731:18)",
                 "diff": null
               },
-              "uuid": "478ed138-76ab-43e0-8247-8eb223ba12f5",
-              "parentUUID": "07f49d36-df9b-40a1-ba8d-580e9a270a9a",
+              "uuid": "63276148-bfdb-4be6-a8af-99abd4aafaaa",
+              "parentUUID": "40d6da21-a41c-479d-b57a-1ab0511f19b7",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9c56f847-2c62-45d8-a4a6-7701922e7a29",
-            "84c75c08-2bbe-4177-ad2a-ace76fab769d",
-            "0c87c7f1-5df9-491b-92de-15e7a29e8cac"
+            "942c91d8-929c-44bf-87cc-de9f807fda7f",
+            "cda1091b-f06a-4cbe-8051-9d5a62948af2",
+            "c69669f4-6d21-43bf-9938-f38ffca95a5f"
           ],
           "failures": [
-            "478ed138-76ab-43e0-8247-8eb223ba12f5"
+            "63276148-bfdb-4be6-a8af-99abd4aafaaa"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 22366,
+          "duration": 22064,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

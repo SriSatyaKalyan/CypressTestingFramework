@@ -6,7 +6,9 @@
   "scripts": {
     "test": ".\\node_modules\\.bin\\cypress run",
     "headModeTest": "npm run test -- --headed",
-    "totalSuiteKey": "npm run test -- --record --key 5db0ed04-0409-46f3-85b4-d480c65526f1"
+    "totalSuiteKey": "npm run test -- --record --key 5db0ed04-0409-46f3-85b4-d480c65526f1",
+    "recordDashboardTest": "npm run test -- --record --key 5db0ed04-0409-46f3-85b4-d480c65526f1 --reporter mochawesome-report",
+    "workingTests": "npm run headModeTest -- --spec \"cypress/integration/examples/cypress_2.js\", \"cypress/integration/examples/cypress_3.js\""
   },
   "author": "rattatta",
   "license": "ISC",
