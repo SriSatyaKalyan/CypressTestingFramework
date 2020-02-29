@@ -105,7 +105,7 @@ describe("Framework 1: Framework Test Suite", function(){
         cy.wait(3000);
 
         //Click on the "Terms and Conditions" check box
-        //checkoutPageVar.getTermsConditionsCheckBox().click();
+        checkoutPageVar.getTermsConditionsCheckBox().click();
 
         //Click on the 'Purchase' button
         checkoutPageVar.getPurchaseButton().click();
