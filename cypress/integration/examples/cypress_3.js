@@ -1,3 +1,5 @@
+import 'cypress-iframe'
+
 describe("Test 3: Handing advanced functionalities of Cypress", function(){
     it("Handling pop-ups and alerts", function(){
         //Navigating to the practice page
@@ -68,5 +70,27 @@ describe("Test 3: Handing advanced functionalities of Cypress", function(){
             //visit() method cannot be used to access browsers from other domains
             cy.visit(urlText);
         })
+    })
+
+    it.only("Handling frames", function(){
+        cy.log("Handling frames here")
+
+        //Visiting the webpage which has the iframe
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+
+        //Here we have entered the iframe using the id
+        cy.frameLoaded("#courses-iframe")
+
+        //To start working on the iframe, we need to use the 'cy.iframe()' command
+        //To click on any command in the iframe, we need to use '.find()' and not '.get()'
+        //Here, we clicked on one of the links in the header of the page
+        cy.iframe().find("a[href = '#/mentorship']").eq(0).click()
+
+        //We are now verifying if clicking on the link has opened the particular box
+        cy.iframe().find(".inner-box").should("contain", "Mentorship")
+
+        //Finding if the number of packages are 2
+        cy.iframe().find(".pricing-title").should('have.length', 2)
+
     })
 })
